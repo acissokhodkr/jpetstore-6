@@ -6,10 +6,10 @@
   tasks:
     - name: Copy deployment.yaml to Kubernetes master
       copy:
-        src: /var/lib/jenkins/workspace/petstore/deployment.yaml  # Assuming Jenkins workspace variable
-        dest: /home/ubuntu/
+        src: /var/lib/jenkins/workspace/PETSHOP/deployment.yaml  # Assuming Jenkins workspace variable
+        dest: /home/vagrant/
       become: yes  # Use sudo for copying if required
-      become_user: root  # Use a privileged user for copying if required
+      become_user: vagrant  # Use the appropriate user for copying if required
 
     - name: Apply Deployment
-      command: kubectl apply -f /home/ubuntu/deployment.yaml
+      command: kubectl apply -f /home/vagrant/deployment.yaml
